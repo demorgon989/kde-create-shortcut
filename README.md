@@ -40,6 +40,8 @@ Works just like "Create Shortcut" on Windows — right-click any file or folder 
 
 ## Install
 
+chmod +x install.sh
+
 ```bash
 bash install.sh
 ```
@@ -49,8 +51,6 @@ That's it. No sudo, no root, no package manager.
 ---
 
 ## Uninstall
-
-chmod +x install.sh
 
 ```bash
 bash uninstall.sh
