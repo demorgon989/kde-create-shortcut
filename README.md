@@ -40,7 +40,7 @@ Works just like "Create Shortcut" on Windows — right-click any file or folder 
 
 ## Install
 
-chmod +x install.sh
+chmod +x install.sh uninstall.sh
 
 ```bash
 bash install.sh
