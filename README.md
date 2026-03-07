@@ -21,7 +21,6 @@ Works just like "Create Shortcut" on Windows — right-click any file or folder 
 
 - KDE Plasma 6
 - Dolphin file manager
-- `kded6` (included with KDE Plasma 6)
 
 ---
 
