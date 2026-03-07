@@ -50,6 +50,8 @@ That's it. No sudo, no root, no package manager.
 
 ## Uninstall
 
+chmod +x install.sh
+
 ```bash
 bash uninstall.sh
 ```
