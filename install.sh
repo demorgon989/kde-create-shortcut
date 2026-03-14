@@ -69,7 +69,7 @@ chmod +x ~/.local/share/kio/servicemenus/create_shortcut.desktop
 echo "Restarting kded6..."
 killall kded6 2>/dev/null || true
 sleep 1
-kded6 &
+kded6 > /dev/null 2>&1 &
 disown
 echo ""
 echo -e "${GREEN}Done! Installation complete.${NC}"
