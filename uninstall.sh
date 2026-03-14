@@ -24,10 +24,11 @@ rm -f ~/.local/share/kio/servicemenus/create_shortcut.desktop
 
 # --- Restart kded6 ---
 echo "Restarting kded6..."
-killall kded6 2>/dev/null || true
+killallkillall kded6 2>/dev/null || true
 sleep 1
-kded6 &
+nohup kded6 > /dev/null 2>&1 &
 disown
+sleep 2
 
 echo ""
 echo -e "${GREEN}Done! KDE Create Shortcut has been removed.${NC}"
