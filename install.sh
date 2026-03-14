@@ -73,9 +73,11 @@ cat > ~/.local/share/kio/servicemenus/create_shortcut.desktop << 'EOF'
 [Desktop Entry]
 Type=Service
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+X-KDE-Priority=TopLevel
 MimeType=inode/directory;application/octet-stream;
 Actions=createDesktopShortcut;
 Icon=insert-link
+
 [Desktop Action createDesktopShortcut]
 Name=Create Shortcut
 Icon=insert-link
