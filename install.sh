@@ -26,6 +26,23 @@ for arg in "$@"; do
   name=$(basename "$arg")
   dest="$(dirname "$arg")/${name}.desktop"
 
+  # Get the icon from the source file
+  if [[ "$arg" == *.desktop ]]; then
+    ICON=$(grep -m1 "^Icon=" "$arg" | cut -d= -f2)
+  else
+    MIMETYPE=$(xdg-mime query filetype "$arg" 2>/dev/null)
+    ICON=$(gio info "$arg" 2>/dev/null | grep "standard::icon" | cut -d' ' -f4 | cut -d',' -f1)
+  fi
+
+  # Fallback if we couldn't get an icon
+  if [[ -z "$ICON" ]]; then
+    if [[ "$arg" == *.sh ]]; then
+      ICON="application-x-shellscript"
+    else
+      ICON="unknown"
+    fi
+  fi
+
   if [[ "$arg" == *.sh ]]; then
     chmod +x "$arg"
     EXEC_LINE="bash -c \"bash '$arg'; read -p 'Press Enter to close...'\" "
@@ -40,7 +57,7 @@ for arg in "$@"; do
 Type=Application
 Name=${name} - Shortcut
 Exec=${EXEC_LINE}
-Icon=unknown
+Icon=${ICON}
 Terminal=${TERMINAL}
 StartupNotify=true
 DESKTOP
